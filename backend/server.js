@@ -4,8 +4,9 @@ const cors = require("cors");
 
 const connectDB = require("./config/db");
 
-// ✅ NEW: import routes
+// Routes
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");  // ✅ NEW
 
 dotenv.config();
 
@@ -27,8 +28,9 @@ app.get("/test", (req, res) => {
   res.json({ message: "Backend working perfectly 🚀" });
 });
 
-// ✅ NEW: connect auth routes
+// API Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);  // ✅ NEW
 
 const PORT = process.env.PORT || 5000;
 
